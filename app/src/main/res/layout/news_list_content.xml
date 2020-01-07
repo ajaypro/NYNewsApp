@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="newsData"
+            type="com.deepak.newsapp.data.model.NewsData" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground">
+
+        <LinearLayout
+            android:id="@+id/news_text_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_toEndOf="@+id/news_icon"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/news_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textColor="@color/title_color"
+                android:text="@{newsData.title}"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/news_by_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginTop="10dp"
+                android:text="@{newsData.byline}"
+                android:textColor="@color/publisher_color"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/news_published"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:layout_gravity="right"
+                android:text="@{newsData.published_date}"
+                android:textColor="@color/publisher_color"
+                android:textSize="13dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/news_text_layout"
+            android:background="@color/placeholder_bg" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/news_icon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_alignTop="@+id/news_text_layout"
+            android:layout_alignBottom="@+id/news_text_layout"
+            android:layout_centerVertical="true"
+            app:civ_border_width="0dp" />
+    </RelativeLayout>
+</layout>
